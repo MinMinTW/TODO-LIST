@@ -62,11 +62,10 @@ html {
 body{
     height: 100vh;
     background-image: linear-gradient(174deg, #FFD370 2%, #FFD370 50%, #FFFFFF 50%, #FFFFFF 100%, #E8E8E8 100%);
+    background-size: contain;
     background-repeat: no-repeat;
     letter-spacing: 0.07em; /* em 是以父元素為基準*/
-    background-attachment:scroll;
-    background-size: cover;
-
+    
 }
 .container{
     margin: 3rem auto 1.5rem auto;
