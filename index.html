@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO LIST</title>
+    <Link rel="stylesheet" href="css/all.css"></Link>
+    <style>
+        @import url("https://fonts.googleapis.com/earlyaccess/notosanstc.css");
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap');
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" 
+    integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous">
+</script>
+</head>
+<body>
+    <div class="container">
+        <h1>TODO LIST</h1>
+        <div class="listInput">
+            <input type="text" placeholder="新增待辦事項" class="inputBlank">
+            <a href="#" class="inputBtn">+</a>
+        </div>
+        <div class="list">
+            <div >
+                <ul class="listTab">
+                    <li data-status="all" class="active">全部</li>
+                    <li data-status="notDone">待完成</li>
+                    <li data-status="done">已完成</li>
+                </ul>
+            </div>
+            <div class="listBody">
+                <ul class="todos">
+                    <li class="eachTodo">
+                        <label class="checkbox" >
+                            <input type="checkbox">
+                            <span>打電話叫媽媽匯錢給我</span>
+                        </label>
+                        <a href="#" class="deleteList"></a>                   
+                    </li>
+                </ul>
+            </div>
+            <div class="listFooter">
+                <div class="finishItems">
+                    <p><span class="undoneItems">0</span> 個待完成項目</p>
+                </div>
+                <div class="deleteItems">
+                    <a href="#">清除已完成項目</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="all.js"></script>
+</body>
+</html>

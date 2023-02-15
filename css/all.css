@@ -1,0 +1,264 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*{
+    outline: 1px solid black;
+}*/
+
+* {
+    box-sizing: border-box;
+  }
+html {
+    font-size: 16px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body{
+    height: 100vh;
+    background-image: linear-gradient(174deg, #FFD370 2%, #FFD370 50%, #FFFFFF 50%, #FFFFFF 100%, #E8E8E8 100%);
+    background-repeat: no-repeat;
+    letter-spacing: 0.07em; /* em 是以父元素為基準*/
+}
+.container{
+    margin: 3rem auto 1.5rem auto;
+    padding: 0 12px;
+    width: 500px;
+    @media (max-width: 575px) {
+    margin-top: 1.5rem;
+    }
+}
+h1{
+    text-align: center;
+    font-size: 3rem; /*rem是以根元素為基準*/
+    margin-bottom: 1.5rem;
+    font-family: "Baloo Tamma 2";
+    letter-spacing: 0.5rem;
+    font-weight: bold;
+    @media (max-width: 575px) {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    }
+}
+.listInput {
+    max-width: 100%;
+    background: white;
+    border-radius: 8px;
+    padding: 0.5em 0 0.5em 0;
+    display: flex;
+}
+.inputBlank {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    font-size: 1rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    background: none;
+  }
+
+.inputBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 12px;
+    color: #fff;
+    background: rgba(22, 21, 21, 0.921);
+    margin-right:5px ;
+    font-size: 2rem;
+    text-decoration: none;
+}
+.list{
+    margin-top: 20px;
+    background: white;
+    border-radius: 12px;
+    padding: 1em 0 1em 0;
+    font-family: 'Noto Sans TC', sans-serif;
+
+}
+.listTab{
+    display: flex;
+    justify-content: space-around;
+    width: 100%
+}
+.listTab li{
+    text-decoration: none;
+    width: 100%;
+    padding: 0.5em 0 1em 0;
+    text-align: center;
+    color: gray;
+    border-bottom: lightgray solid 2px ;
+
+}
+
+.listTab li:hover{
+    cursor: pointer;
+    font-weight: bold;
+    color: gray;
+    border-bottom: gray solid 2px ;
+}
+
+.listTab li.active{
+    color: black;
+    font-weight: bold;
+    border-bottom: black solid 2px;
+    transition: 0.5s;
+}
+    
+
+.listBody{
+    margin-bottom: 1.5em;
+}
+
+.listFooter{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem 0 1rem;
+}
+.deleteItems a{
+    text-decoration: none;
+    color: tomato;
+}
+.deleteItems a:hover{
+    color: red;
+}
+.eachTodo{
+    position: relative;
+    padding-right: 3rem;
+    border-bottom:1px solid #9f9a91;
+}
+.eachTodo a.deleteList{
+    margin-right: 6px;
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    text-decoration: none;
+    color: #9f9a91;
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background-image: url("/css/images/icons8-cancel-32\ \(1\).png");
+    background-size: contain;
+}
+.eachTodo:hover a.deleteList{
+    opacity: 1;
+}
+.checkbox{
+    position: relative;
+    width: 100%;
+    display: block;
+    padding-left: 50px;
+    cursor: pointer;
+}
+.checkbox span{
+    display: block;
+    padding: 1rem 0;
+    line-height:1.5
+}
+.checkbox input{
+    position: absolute;
+    top:0;
+    left:0;
+    opacity:0;
+    cursor: pointer ;
+    display: block;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+.checkbox span::before{
+    content: "";
+    position: absolute;
+    left: 0.8rem;
+    top:50%;
+    transform: translateY(-50%) scale(1);
+    height: 20px;
+    width: 20px;
+    border-radius: 5px;
+    border: 1px solid #a9a4a4;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+.checkbox span::after{
+    content: "";
+    position: absolute;
+    left: 19px;
+    top:15px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 0.5rem;
+    border-radius: 1px;
+    border-bottom: 3px solid #ffd370;
+    border-right: 3px solid #ffd370;
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.3s ease;
+}
+.checkbox input:checked~span{
+    color: #9f9a91;
+    text-decoration: line-through;
+}
+.checkbox input:checked~span::before{
+    border-color: transparent;
+    transform: translateY(-50%) scale(0);
+}
+.checkbox input:checked~span::after{
+    opacity: 1;
+}
+
+.notice{
+    padding: 80px;
+    text-align: center;
+    color: #9f9a91
+}
