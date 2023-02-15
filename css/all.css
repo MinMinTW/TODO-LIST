@@ -62,7 +62,7 @@ html {
 body{
     height: 100vh;
     background-image: linear-gradient(174deg, #FFD370 2%, #FFD370 50%, #FFFFFF 50%, #FFFFFF 100%, #E8E8E8 100%);
-    background-size: contain;
+    background-attachment: scroll;
     background-repeat: no-repeat;
     letter-spacing: 0.07em; /* em 是以父元素為基準*/
     
@@ -71,7 +71,7 @@ body{
     margin: 3rem auto 1.5rem auto;
     padding: 0 12px;
     width: 500px;
-    @media (max-width: contain) {
+    @media (max-width: 575px) {
     margin-top: 1.5rem;
     }
 }
@@ -82,7 +82,7 @@ h1{
     font-family: "Baloo Tamma 2";
     letter-spacing: 0.5rem;
     font-weight: bold;
-    @media (max-width: contain) {
+    @media (max-width: 575px) {
     font-size: 2rem;
     margin-bottom: 1rem;
     }
