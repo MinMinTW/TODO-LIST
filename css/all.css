@@ -61,7 +61,9 @@ html {
 
 body{
     height: 100vh;
-    width: 100vw;
+    @media (max-width: 575px) {
+        margin-top: 1.5rem;
+        }
     background-image: linear-gradient(174deg, #FFD370 2%, #FFD370 50%, #FFFFFF 50%, #FFFFFF 100%, #E8E8E8 100%);
     background-repeat: no-repeat;
     letter-spacing: 0.07em; /* em 是以父元素為基準*/
