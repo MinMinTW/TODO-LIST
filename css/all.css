@@ -177,7 +177,7 @@ h1{
     border-bottom:1px solid #9f9a91;
 }
 .eachTodo a.deleteList{
-    margin-right: 6px;
+    margin-right: 10px;
     position: absolute;
     opacity: 0;
     right: 0;
@@ -187,9 +187,9 @@ h1{
     text-decoration: none;
     color: #9f9a91;
     display: block;
-    width: 2rem;
-    height: 2rem;
-    background-image: url("/css/images/icons8-cancel-32\ \(1\).png");
+    width: 1.2rem;
+    height: 1.2rem;
+    background-image: url(https://i.imgur.com/7Q4RjFx.jpg);
     background-size: contain;
 }
 .eachTodo:hover a.deleteList{
