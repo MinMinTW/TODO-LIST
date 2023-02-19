@@ -10,24 +10,25 @@ let data =[
     {
         todo: "打電話叫媽媽匯錢給我",
         confirm: false,
+        id: new Date().getTime()
     },
 ];
 
 function init(data){
     let str =""; //要記得放在function內，不然清單會一直疊加
     let count = data.length;
-    data.forEach(function(item,index){
+    data.forEach(function(item){
 
-    let contentFalse = `<li class="eachTodo">
+    let contentFalse = `<li class="eachTodo" data-id="${item.id}">
     <label class="checkbox" for="" >
-        <input type="checkbox" data-num="${index}"/>
+        <input type="checkbox" />
         <span>${item.todo}</span>
     </label>
     <a href="#" class="deleteList"></a>                    
     </li>`
-    let contentTrue = `<li class="eachTodo">
+    let contentTrue = `<li class="eachTodo" data-id="${item.id}">
     <label class="checkbox" for="" >
-        <input type="checkbox" data-num="${index}"checked/>
+        <input type="checkbox" checked/>
         <span>${item.todo}</span>
     </label>
     <a href="#" class="deleteList"></a>                    
@@ -87,6 +88,7 @@ function addTodo(){
     let newTodo = {};
     newTodo.todo= inputBlank.value;
     newTodo.confirm=false;
+    newTodo.id = new Date().getTime()
     if(newTodo.todo.trim()==""){
         alert("輸入一些代辦事項吧!")
         return
@@ -97,26 +99,26 @@ function addTodo(){
     init(data);
 }
 
+
 todos.addEventListener('click', function(e){
-    let input =e.target.closest('li').querySelector('input');
-    //因input裡面有包了span，
-    //當點擊的子元素中包含其他元素（如 span）時，
-    //e.target 會返回點擊的最內層元素。
-    //在這種情況下，
-    //需要用 e.target.closest('li') 來找到最近的 li 元素，
-    //並從該元素中找到 data-num 屬性，以便進一步處理。
-    let num = e.target.getAttribute('data-num');
+    let id = parseInt(e.target.closest("li").dataset.id);
     if(e.target.getAttribute("class") == "deleteList"){
         e.preventDefault();
-        data.splice(num,1)
-    }else if(input.nodeName == "INPUT"){
-       if(data[num].confirm==true){
-        data[num].confirm=false
-       } else if(data[num].confirm==false){
-        data[num].confirm=true
-      }
-    }
-    init(data)
+        let index = data.findIndex((item) => item.id === id);
+        data.splice(index,1)
+    }else if(e.target.nodeName == "INPUT"){
+        data.forEach((item) =>{
+            if(item.id === id){
+                if(item.confirm==true){
+                    item.confirm=false
+                   } else if(item.confirm==false){
+                    item.confirm=true
+                  }
+            }
+        })
+        
+}
+    updateTab()
     })
 
 //清除已完成項目

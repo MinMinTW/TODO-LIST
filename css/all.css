@@ -69,9 +69,15 @@ body{
 .container{
     margin: 3rem auto 1.5rem auto;
     padding: 0 12px;
-    width: 500px;
-    @media (max-width: 575px) {
-    margin-top: 1.5rem;
+    max-width: 500px
+}
+@media (max-width: 575px){
+    .container{
+        margin-top: 1.5rem;
+    }
+    h1{
+        font-size: 2rem;
+        margin-bottom: 1rem;;
     }
 }
 h1{
@@ -81,10 +87,7 @@ h1{
     font-family: "Baloo Tamma 2";
     letter-spacing: 0.5rem;
     font-weight: bold;
-    @media (max-width: 575px) {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    }
+   
 }
 .listInput {
     max-width: 100%;
@@ -175,6 +178,9 @@ h1{
     position: relative;
     padding-right: 3rem;
     border-bottom:1px solid #9f9a91;
+}
+.eachTodo:hover{
+    cursor: pointer;
 }
 .eachTodo a.deleteList{
     margin-right: 10px;
