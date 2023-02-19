@@ -96,7 +96,7 @@ function addTodo(){
         data.push(newTodo);
     }
     inputBlank.value="";
-    init(data);
+    updateTab()
 }
 
 
@@ -129,7 +129,7 @@ deleteItems.addEventListener("click", function(e){
         return item.confirm==false
     })
     }
-    init(data)
+    updateTab()
 })
 
 //標籤分類切換
