@@ -6,7 +6,8 @@ const checkbox = document.querySelector('.checkbox input');
 const deleteItems = document.querySelector('.deleteItems');
 const listTab = document.querySelector('.listTab');
 
-let data =[
+let data = JSON.parse(localStorage.getItem("data")) || 
+[
     {
         todo: "打電話叫媽媽匯錢給我",
         confirm: false,
@@ -16,7 +17,6 @@ let data =[
 
 function init(data){
     let str =""; //要記得放在function內，不然清單會一直疊加
-    let count = data.length;
     data.forEach(function(item){
 
     let contentFalse = `<li class="eachTodo" data-id="${item.id}">
@@ -34,13 +34,11 @@ function init(data){
     <a href="#" class="deleteList"></a>                    
     </li>`
 
-
-
+    
     if ((item.confirm == false)){
         str += contentFalse;
     }else if(item.confirm == true){
         str += contentTrue;
-        count-=1
     }
 
 });
@@ -87,6 +85,7 @@ inputBtn.addEventListener('click', function(e){
 function addTodo(){
     let newTodo = {};
     newTodo.todo= inputBlank.value;
+    localStorage.setItem('todo',newTodo.todo);
     newTodo.confirm=false;
     newTodo.id = new Date().getTime()
     if(newTodo.todo.trim()==""){
@@ -96,6 +95,7 @@ function addTodo(){
         data.push(newTodo);
     }
     inputBlank.value="";
+    localStorage.setItem("data", JSON.stringify(data));
     updateTab()
 }
 
@@ -118,6 +118,7 @@ todos.addEventListener('click', function(e){
         })
         
 }
+    localStorage.setItem("data", JSON.stringify(data));
     updateTab()
     })
 
